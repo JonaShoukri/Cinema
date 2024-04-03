@@ -1,17 +1,18 @@
 package Objects;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 
 public class Cinema {
     private LinkedList<Movie> movies; // This is the first LINKEDLIST you have asked for in the documentation
-    private ArrayList<Hall> halls;
+    private HashMap<Integer, Hall> halls;
     private LinkedList<Ticket> reservations; // This is the third LINKEDLIST you have asked for in the documentation
     private static final Cinema instance = new Cinema();
 
     private Cinema() {
         this.movies = new LinkedList<>();
-        this.halls = new ArrayList<>();
+        this.halls = new HashMap<>();
         this.reservations = new LinkedList<>();
     }
 
@@ -22,14 +23,13 @@ public class Cinema {
         this.movies.add(movie);
     }
     public void removeMovie(Movie movie) {
-
         this.movies.remove(movie);
     }
-    public ArrayList<Hall> getHalls() {
+    public HashMap<Integer, Hall> getHalls() {
         return this.halls;
     }
     public void addHall(Hall hall) {
-        this.halls.add(hall);
+        this.halls.put(hall.getNumber(), hall);
     }
     public LinkedList<Ticket> getReservations() {
            return this.reservations;

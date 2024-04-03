@@ -6,7 +6,7 @@ public class Hall {
     private static int i = 0;
     private int number;
     private int capacity;
-    private ArrayList<Movie> movies;
+    private ArrayList<Movie> movies; // I Added this because
 
     public Hall(int capacity) {
         this.capacity = capacity;
