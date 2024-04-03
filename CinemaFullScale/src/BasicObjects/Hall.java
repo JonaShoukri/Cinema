@@ -2,13 +2,14 @@ package BasicObjects;
 
 public class Hall {
     private int capacity;
-    private ICinema cinema;
+    private Cinema cinema;
 
-    Hall(int capacity, ICinema cinema){
+    Hall(int capacity, Cinema cinema){
         this.capacity = capacity;
         this.cinema = cinema;
+        cinema.addHall(this);
     }
-    ICinema getCinema(){
+    Cinema getCinema(){
         return this.cinema;
     }
     int getCapacity(){

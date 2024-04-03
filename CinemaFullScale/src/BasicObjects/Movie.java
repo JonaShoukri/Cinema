@@ -1,22 +1,21 @@
 package BasicObjects;
 
-import BasicObjects.ICinema;
+import BasicObjects.Cinema;
 
 public class Movie {
     private String name;
     private String director;
-    private int releaseYear;
     private String description;
     private String genre;
-    private ICinema cinema;
+    private Cinema cinema;
 
-    Movie(ICinema cinema, String name, String director, int releaseYear, String description, String genre){
+    Movie(Cinema cinema, String name, String director, String description, String genre){
         this.name = name;
         this.director = director;
-        this.releaseYear = releaseYear;
         this.description = description;
         this.genre = genre;
         this.cinema = cinema;
+        this.cinema.addMovie(this);
     }
 
     String getName(){
@@ -25,16 +24,13 @@ public class Movie {
     String getDDirector(){
         return this.director;
     }
-    int getReleaseYear(){
-        return this.releaseYear;
-    }
     String getDescription(){
         return this.description;
     }
     String getGenre(){
         return this.genre;
     }
-    ICinema getCinema(){
+    Cinema getCinema(){
         return this.cinema;
     }
 }

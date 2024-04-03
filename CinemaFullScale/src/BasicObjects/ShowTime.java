@@ -4,16 +4,18 @@ import java.time.LocalDateTime;
 import CompareShowtimes_ChainOfResponsibility.*;
 
 public class ShowTime {
-    private ICinema cinema;
+    private Cinema cinema;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
 
-    public ShowTime( LocalDateTime startTime, LocalDateTime endTime){
+    public ShowTime( LocalDateTime startTime, LocalDateTime endTime, Cinema cinema){
         this.startTime = startTime;
         this.endTime = endTime;
+        this.cinema = cinema;
+        this.cinema.addShowtime(this);
     }
 
-    ICinema getCinema(){
+    Cinema getCinema(){
         return this.cinema;
     }
     public LocalDateTime getStartTime(){
