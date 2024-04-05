@@ -15,4 +15,5 @@ public class Hall {
     public int getCapacity(){
         return this.capacity;
     }
+
 }
