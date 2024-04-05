@@ -1,6 +1,6 @@
 package CompareShowtimes_ChainOfResponsibility;
 
-import BasicObjects.ShowTime;
+import BasicObjects_MediatorAndVisitorPattern.ShowTime;
 
 public interface ICompareShowtimes {
     ICompareShowtimes next = null;

@@ -1,6 +1,4 @@
-package BasicObjects;
-
-import BasicObjects.Cinema;
+package BasicObjects_MediatorAndVisitorPattern;
 
 public class Movie {
     private String name;
@@ -18,7 +16,7 @@ public class Movie {
         this.cinema.addMovie(this);
     }
 
-    String getName(){
+    public String getName(){
         return this.name;
     }
     String getDDirector(){

@@ -1,4 +1,4 @@
-package BasicObjects;
+package BasicObjects_MediatorAndVisitorPattern;
 
 public class Console {
     public static void Clear(){

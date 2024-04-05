@@ -1,4 +1,4 @@
-package BasicObjects;
+package BasicObjects_MediatorAndVisitorPattern;
 
 public class Hall {
     private int capacity;
@@ -12,7 +12,7 @@ public class Hall {
     Cinema getCinema(){
         return this.cinema;
     }
-    int getCapacity(){
+    public int getCapacity(){
         return this.capacity;
     }
 }

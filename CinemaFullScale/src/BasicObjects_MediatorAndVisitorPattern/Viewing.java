@@ -1,4 +1,4 @@
-package BasicObjects;
+package BasicObjects_MediatorAndVisitorPattern;
 
 // in order to stay loyal to the mediator pattern and keep the cinema interface as mediator and intermediary between
 // movie, hall and showtimes we have created this class to manage instances of viewings which are comoposed of all three.
@@ -16,7 +16,7 @@ public class Viewing {
     public Movie getMovie(){
         return this.movie;
     }
-    public ShowTime getShowTime(){
+    public ShowTime getShowtime(){
         return this.showTime;
     }
     public Hall getHall(){

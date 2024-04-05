@@ -1,4 +1,4 @@
-package BasicObjects;
+package BasicObjects_MediatorAndVisitorPattern;
 
 import java.time.LocalDateTime;
 import CompareShowtimes_ChainOfResponsibility.*;
