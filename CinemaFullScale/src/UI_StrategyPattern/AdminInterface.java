@@ -3,11 +3,14 @@ package UI_StrategyPattern;
 import BasicObjects_MediatorAndVisitorPattern.Cinema;
 import BasicObjects_MediatorAndVisitorPattern.Console;
 import BasicObjects_MediatorAndVisitorPattern.Hall;
+import BasicObjects_MediatorAndVisitorPattern.User;
 
 import java.util.Map;
 import java.util.Scanner;
 
 public class AdminInterface implements IInterface{
+
+
     @Override
     public void execute(Cinema cinema) {
         int input;
@@ -40,11 +43,17 @@ public class AdminInterface implements IInterface{
                 case 8:
                     removeViewing(cinema);
                     break;
+                case 9:
+                    showReservations(cinema);
+                    break;
+                case 10:
+                    System.out.println("Exiting...");
+                    break;
                 default:
                     System.out.println("Invalid input. Please try again.");
                     break;
             }
-        }while (input != 9);
+        }while (input != 10);
     }
     public int OperationsMenu(){
         int input;
@@ -59,9 +68,10 @@ public class AdminInterface implements IInterface{
             System.out.println("6. Remove a showtime");
             System.out.println("7. Add a viewing");
             System.out.println("8. Remove a viewing");
-            System.out.println("9. Quit");
+            System.out.println("9. Show reservations");
+            System.out.println("10. Quit");
             input = scanner.nextInt();
-        }while(input != 1 && input != 2 && input != 3 && input != 4 && input != 5 && input != 6 && input != 7 && input != 8 && input != 9);
+        }while(input != 1 && input != 2 && input != 3 && input != 4 && input != 5 && input != 6 && input != 7 && input != 8 && input != 9 && input != 10);
         return input;
     }
     public void addMovie(Cinema cinema){
@@ -244,6 +254,15 @@ public class AdminInterface implements IInterface{
             System.out.println("Viewing removed successfully.");
         } else {
             System.out.println("Invalid viewing number. Please try again.");
+        }
+    }
+    public void showReservations(Cinema cinema){
+        System.out.println("Showing reservations...");
+        for (int i = 0; i < cinema.getReservations().size(); i++){
+            System.out.println(cinema.getReservations().get(i).getMovie().getName() + " in hall of "
+                    + cinema.getReservations().get(i).getHall().getCapacity() + " seats at "
+                    + cinema.getReservations().get(i).getShowtime().getStartTime() + " to "
+                    + cinema.getReservations().get(i).getShowtime().getEndTime());
         }
     }
 }

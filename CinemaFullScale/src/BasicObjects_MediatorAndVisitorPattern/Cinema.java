@@ -13,6 +13,7 @@ public class Cinema {
     private static int countShowTimes;
     private static int hallNum;
     private static ArrayList<Viewing> viewings;
+    private static LinkedList<Viewing> reservations;
 
     public Cinema(){
         this.movies = new LinkedList<>();
@@ -21,6 +22,7 @@ public class Cinema {
         this.showtimes = new ShowTime[countShowTimes];
         this.hallNum = 0;
         this.viewings = new ArrayList<>();
+        this.reservations = new LinkedList<>();
     }
 
     public LinkedList<Movie> getMovies(){
@@ -195,7 +197,6 @@ public class Cinema {
             System.out.println("Showtime not found.");
         }
     }
-
     int getHallNum(){
         return hallNum;
     }
@@ -217,7 +218,6 @@ public class Cinema {
             System.out.println("Doesn't exist in viewings exists");
         }
     }
-
     public void accept(User user){
         user.visit(this);
     }
@@ -231,6 +231,12 @@ public class Cinema {
     }
     public ShowTime[] getShowtimes() {
         return showtimes;
+    }
+    public LinkedList<Viewing> getReservations() {
+        return reservations;
+    }
+    public void addReservation(Viewing viewing) {
+        reservations.add(viewing);
     }
 
 }

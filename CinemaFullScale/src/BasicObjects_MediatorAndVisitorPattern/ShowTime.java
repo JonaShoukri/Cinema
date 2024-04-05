@@ -12,6 +12,13 @@ public class ShowTime {
         this.startTime = startTime;
         this.endTime = endTime;
         this.cinema = cinema;
+
+        for (ShowTime showTime : cinema.getShowtimes()) {
+            if (showTime.compareTo(this).equals("overlapping")){
+                System.out.println("This showtime is during another showtime and we refuse to setup pointer to it.");
+                return;
+            }
+        }
         this.cinema.addShowtime(this);
     }
 
