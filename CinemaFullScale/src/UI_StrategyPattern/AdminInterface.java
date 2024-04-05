@@ -9,8 +9,6 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class AdminInterface implements IInterface{
-
-
     @Override
     public void execute(Cinema cinema) {
         int input;

@@ -238,5 +238,4 @@ public class Cinema {
     public void addReservation(Viewing viewing) {
         reservations.add(viewing);
     }
-
 }

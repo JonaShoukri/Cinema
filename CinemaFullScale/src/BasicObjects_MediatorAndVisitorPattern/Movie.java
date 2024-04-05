@@ -19,7 +19,7 @@ public class Movie {
     public String getName(){
         return this.name;
     }
-    String getDDirector(){
+    String getDirector(){
         return this.director;
     }
     String getDescription(){

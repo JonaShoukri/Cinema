@@ -32,7 +32,6 @@ public class ClientInterface implements IInterface{
             }
         }while (input != 3);
     }
-
     public int OperationsMenu(){
         int input;
         do{
@@ -46,7 +45,6 @@ public class ClientInterface implements IInterface{
         }while (input < 1 || input > 3);
         return input;
     }
-
     public void chooseByMovie(Cinema cinema){
         if (cinema.getMovies().isEmpty() || cinema.getViewings().isEmpty()){
             System.out.println("There are no movies or viewings available.");
