@@ -1,7 +1,7 @@
 # Cinema
  This is a cinema Ticketing system designed for both client and administrator use.
  
-This system design used the chain of responsibility pattern, the visitor pattern, the startegy pattern and the chain of responsiblity as follows:
+This system design used the chain of responsibility pattern, the visitor pattern, the startegy pattern and the mediator pattern as follows:
 
 The visitor has two interfaces (strtaegies) to choose from (admin or client). After having chose one of the two, the user visits the cinema and changes its state through the use of its chosen interface (strategy). The chain of responsability is used to compare Showtimes to one another and make sure they dont overlap. Please visit UML for further detail on design.
  
