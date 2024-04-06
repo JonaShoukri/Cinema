@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class ClientInterface implements IInterface{
     @Override
-    public void execute(Cinema cinema) {
+    public void execute(Cinema cinema) throws InterruptedException {
         int input;
 
         do{
@@ -24,10 +24,15 @@ public class ClientInterface implements IInterface{
                     chosenByHall(cinema);
                     break;
                 case 3:
+                    choseByShowtime(cinema);
+                    break;
+                case 4:
                     System.out.println("Exiting...");
+                    Thread.sleep(3000);
                     break;
                 default:
                     System.out.println("Invalid input. Please try again.");
+                    Thread.sleep(3000);
                     break;
             }
         }while (input != 3);
@@ -39,15 +44,17 @@ public class ClientInterface implements IInterface{
             System.out.println("Choose an option:");
             System.out.println("1. Choose by movie");
             System.out.println("2. Choose by hall");
-            System.out.println("3. Exit");
+            System.out.println("2. Choose by showtime");
+            System.out.println("4. Exit");
             Scanner scanner = new Scanner(System.in);
             input = scanner.nextInt();
         }while (input < 1 || input > 3);
         return input;
     }
-    public void chooseByMovie(Cinema cinema){
+    public void chooseByMovie(Cinema cinema) throws InterruptedException {
         if (cinema.getMovies().isEmpty() || cinema.getViewings().isEmpty()){
             System.out.println("There are no movies or viewings available.");
+            Thread.sleep(3000);
             return;
         }
 
@@ -71,6 +78,7 @@ public class ClientInterface implements IInterface{
         }
         if (!found){
             System.out.println("There are no viewings for this movie.");
+            Thread.sleep(3000);
             return;
         }
 
@@ -98,6 +106,7 @@ public class ClientInterface implements IInterface{
                     System.out.println("You have chosen the viewing: " + cinema.getViewings().get(i).getMovie().getName()
                             + " @ " + cinema.getViewings().get(i).getShowtime().getStartTime() + " to "
                             + cinema.getViewings().get(i).getShowtime().getEndTime());
+                    Thread.sleep(3000);
 
                     int count = 1;
                     for(int j = 0; j < cinema.getReservations().size(); j++){
@@ -108,6 +117,7 @@ public class ClientInterface implements IInterface{
 
                     if (count > cinema.getViewings().get(i).getHall().getCapacity()){
                         System.out.println("This viewing is full.");
+                        Thread.sleep(3000);
                         return;
                     }
                     cinema.addReservation(cinema.getViewings().get(i));
@@ -189,5 +199,47 @@ public class ClientInterface implements IInterface{
                 recount++;
             }
         }
+    }
+    public void choseByShowtime(Cinema cinema){
+        if (cinema.getShowtimes().length == 0 || cinema.getViewings().isEmpty()){
+            System.out.println("There are no showtimes or viewings available.");
+            return;
+        }
+
+        int input1;
+        do {
+            Console.Clear();
+            for (int i = 0; i < cinema.getShowtimes().length; i++) {
+                System.out.println(i + 1 + ". " + cinema.getShowtimes()[i].getStartTime() + " to "
+                        + cinema.getShowtimes()[i].getEndTime());
+            }
+            Scanner scanner = new Scanner(System.in);
+            input1 = scanner.nextInt();
+        } while (input1 < 1 || input1 > cinema.getShowtimes().length);
+
+        boolean found = false;
+        for (int i = 0; i < cinema.getViewings().size(); i++) {
+            if (cinema.getViewings().get(i).getShowtime().equals(cinema.getShowtimes()[input1 - 1])) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("There are no viewings for this showtime.");
+            return;
+        }
+
+        int count = 1;
+        for (int i = 0; i < cinema.getReservations().size(); i++) {
+            if (cinema.getReservations().get(i).equals(cinema.getViewings().get(input1 - 1))) {
+                count++;
+            }
+        }
+
+        if (count > cinema.getViewings().get(input1 - 1).getHall().getCapacity()) {
+            System.out.println("This viewing is full.");
+            return;
+        }
+        cinema.addReservation(cinema.getViewings().get(input1 - 1));
     }
 }
