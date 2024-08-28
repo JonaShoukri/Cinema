@@ -35,7 +35,7 @@ public class ClientInterface implements IInterface{
                     Thread.sleep(3000);
                     break;
             }
-        }while (input != 3);
+        }while (input != 4);
     }
     public int OperationsMenu(){
         int input;
@@ -48,7 +48,7 @@ public class ClientInterface implements IInterface{
             System.out.println("4. Exit");
             Scanner scanner = new Scanner(System.in);
             input = scanner.nextInt();
-        }while (input < 1 || input > 3);
+        }while (input < 1 || input > 4);
         return input;
     }
     public void chooseByMovie(Cinema cinema) throws InterruptedException {

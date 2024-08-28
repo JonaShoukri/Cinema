@@ -218,7 +218,7 @@ public class Cinema {
             System.out.println("Doesn't exist in viewings exists");
         }
     }
-    public void accept(User user){
+    public void accept(User user) throws InterruptedException {
         user.visit(this);
     }
     public boolean isInteger(String str) {

@@ -29,12 +29,12 @@ public class User {
             }
         } while(true);
     }
-    void visit(Cinema cinema){ // might delete later and redirect directly to execute() but for now to visualise both
+    void visit(Cinema cinema) throws InterruptedException { // might delete later and redirect directly to execute() but for now to visualise both
         // patters better ill keep it.
         execute(cinema);
     }
 
-    void execute(Cinema cinema){
+    void execute(Cinema cinema) throws InterruptedException {
         userInterface.execute(cinema);
     }
 }
